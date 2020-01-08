@@ -12,13 +12,17 @@ const MainView = props => {
     { id: 1, content: 'HTML', completed: false }
   ]);
 
-  const [navState, setNavState] = useState('all');
+  const [navState, setNavState] = useState([
+    { id: 'all', toggle: true },
+    { id: 'active', toggle: false },
+    { id: 'completed', toggle: false }
+  ]);
 
   // _todos
   const _todos = todos.filter(todo =>
-    navState === 'all'
+    navState[0].toggle
       ? todo
-      : navState === 'active'
+      : navState[1].toggle
       ? !todo.completed
       : todo.completed
   );
@@ -55,13 +59,13 @@ const MainView = props => {
   };
 
   const toggleNav = target => {
-    if (target.classList.value === 'nav') return;
-
-    [...target.parentNode.children].forEach(navItem => {
-      navItem.classList.toggle('active', target.id === navItem.id);
-    });
-
-    setNavState(target.id);
+    if (target.id === 'nav') return;
+    const _navState = navState.map(nav =>
+      target.id === nav.id
+        ? { ...nav, toggle: true }
+        : { ...nav, toggle: false }
+    );
+    setNavState(_navState);
   };
 
   return (
@@ -70,7 +74,7 @@ const MainView = props => {
       <div className="ver">2.0</div>
 
       <Input addTodo={addTodo} />
-      <Navigation toggleNav={toggleNav} />
+      <Navigation navState={navState} toggleNav={toggleNav} />
       <Todo
         todos={_todos}
         toggleCompleted={toggleCompleted}

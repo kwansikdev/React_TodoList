@@ -4,7 +4,6 @@ const Input = props => {
   const handleEnter = add => e => {
     if (e.key !== 'Enter' || e.target.value.trim() === '') return;
 
-    console.log(e.target.value);
     add(e.target.value.trim());
     e.target.value = '';
   };

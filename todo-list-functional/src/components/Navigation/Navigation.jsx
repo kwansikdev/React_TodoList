@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Navigation = props => {
-  const [navState] = useState([
-    { id: 'all' },
-    { id: 'active' },
-    { id: 'completed' }
-  ]);
-
-  // onClick={({ target }) => props.toggleNav(target)}
+  const navState = props.navState;
   const navList = navState.map(navItem => (
     <li
       key={navItem.id}
       id={navItem.id}
-      className={navItem.id === 'all' ? 'active' : null}
-      onClick={({ target }) => props.toggleNav(target)}
+      className={navItem.toggle ? 'active' : null}
+      onClick={() => props.toggleNav(navItem)}
     >
       {navItem.id}
     </li>

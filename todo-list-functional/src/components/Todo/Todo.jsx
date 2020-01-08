@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Todo = props => {
-  console.log(props.todos);
   const todo = props.todos.map(todo => (
     <li id={todo.id} key={todo.id} className="todo-item">
       <input
