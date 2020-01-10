@@ -2,6 +2,8 @@
 
 <br />
 
+Wen Jan 08 2020
+
 ---
 
 ## 기능
@@ -20,13 +22,13 @@
 
 <br />
 
-### Todo version 1 
+### [Todo version 1](https://github.com/kwansikdev/React_TodoList/tree/master/todo-list-class)
 
 - 하나의 **Class Component** 로 작성
 
 <br />
 
-### Todo version 2 
+### [Todo version 2](https://github.com/kwansikdev/React_TodoList/tree/master/todo-list-functional) 
 
 - 하나의 **Functional Component** 로 작성
 - Components 폴더에 `Input, Navigation, Todo, Footer, Mainview` 5개의 component로 분리해서 작성
