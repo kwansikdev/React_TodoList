@@ -59,7 +59,6 @@ const MainView = props => {
   };
 
   const toggleNav = target => {
-    if (target.id === 'nav') return;
     const _navState = navState.map(nav =>
       target.id === nav.id
         ? { ...nav, toggle: true }
